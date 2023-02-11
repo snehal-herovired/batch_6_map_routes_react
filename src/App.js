@@ -3,13 +3,16 @@ import { useEffect ,useState} from 'react';
 import './App.css';
 import product from './Product';
 import Card from './component/Card';
+import Login from './component/Login';
+import Signup from './component/SIgnup';
+import Landing from './component/Landing';
+import { Routes, Route } from "react-router-dom"
+// BrowserRouter ,Routes,Route
 function App() {
   // console.log(product
   let [product,setProduct] =useState([])
   //array
   //map through an array and render component while the passing the prop
-
-
   // state ,prop,map
   // Call APIS in useeffect hook.
   // after getting data from api , set the data as an state of react using usestate hook
@@ -26,15 +29,23 @@ function App() {
 
   return (
     <div className="App">
-      {
+    <Routes>
+      
+    
+     
+        <Route path='/' element={  <Landing />} />
+        <Route path='/login' element={ <Login /> } />
+        <Route path='/register' element={ <Signup /> } />
+      {/* {
         product.map((ele) => {
           return (
             <Card ele={ele} />
           )
         })
-      }
-   
-    </div>
+      } */}
+       
+      </Routes>
+      </div>
   );
 }
 
